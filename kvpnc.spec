@@ -10,6 +10,7 @@ Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.gz
 # Source0-md5:	005a412ddd0fc6f1f8d753fd73e6fb1b
 URL:		http://home.gna.org/kvpnc/
 BuildRequires:	kdelibs-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	vpnc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,16 +29,16 @@ GUI dla Klienta cvpn.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_datadir}/config,%{_desktopdir}}
 
 %{__make} install \
-        DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir}
 
 install src/%{name}ui.rc $RPM_BUILD_ROOT%{_datadir}/config
 install src/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
-%find_lang %{name}
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,7 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_iconsdir}/*/*/*/%{name}*
-%{_datadir}/apps/*
+%{_iconsdir}/hicolor/*/*/%{name}*
+#%{_iconsdir}/locolor/*/*/%{name}*
+%{_datadir}/apps/kvpnc
 %{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
