@@ -3,7 +3,7 @@ Summary:	GUI for VPN Client for Cisco EasyVPN
 Summary(pl):	GUI dla klienta vpn dla Cisco EasyVPN
 Name:		kvpnc
 Version:	0.4.1.2
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.gz
@@ -29,12 +29,13 @@ GUI dla Klienta cvpn.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_datadir}/config
+install -d $RPM_BUILD_ROOT{%{_datadir}/config,%{_desktopdir}}
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
 install src/%{name}ui.rc $RPM_BUILD_ROOT%{_datadir}/config
+install src/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
@@ -48,3 +49,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/*/%{name}*
 %{_datadir}/apps/*
 %{_datadir}/config/*
+%{_desktopdir}/%{name}.desktop
