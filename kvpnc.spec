@@ -16,10 +16,10 @@ Requires:	vpnc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GUI for vpnc
+GUI for vpnc.
 
 %description -l pl
-GUI dla klienta vpnc
+GUI dla klienta vpnc.
 
 %prep
 %setup -q
@@ -62,4 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kvpnc
 %{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
-%{_iconsdir}/hicolor/*
+%{_iconsdir}/hicolor/*/*/*
