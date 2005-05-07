@@ -6,8 +6,7 @@ Version:	0.6.1
 Release:	0.1
 License:	GPL
 Group:		Networking/Daemons
-#Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
-Source0:	http://distro.ibiblio.org/pub/linux/distributions/gentoo/distfiles/%{name}-%{version}.tar.bz2
+Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
 # Source0-md5:	1ecee852e738322d3c8a18751cd7f88e
 URL:		http://home.gna.org/kvpnc/
 BuildRequires:	kdelibs-devel >= 3.2
