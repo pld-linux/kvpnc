@@ -10,6 +10,7 @@ Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
 # Source0-md5:	a8a6fd6af20ae4675382a45382ec614d
 URL:		http://home.gna.org/kvpnc/en/index.html
 BuildRequires:	kdelibs-devel >= 3.2
+BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
 Requires:	vpnc
