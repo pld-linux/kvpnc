@@ -1,13 +1,12 @@
-%define		_beta	rm+zomb.1
 Summary:	GUI for VPN Client for Cisco EasyVPN
 Summary(pl):	GUI dla klienta vpn dla Cisco EasyVPN
 Name:		kvpnc
-Version:	0.7
-Release:	0.1
+Version:	0.7.2
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
-# Source0-md5:	a8a6fd6af20ae4675382a45382ec614d
+# Source0-md5:	0164e4c3eb3b2d334f9118e97fc42e04
 URL:		http://home.gna.org/kvpnc/en/index.html
 BuildRequires:	kdelibs-devel >= 3.2
 BuildRequires:	libstdc++-devel
@@ -25,11 +24,11 @@ and raccoon is a IPSec client for Linux 2.6.x and *BSD. It also
 supports PPTP (pptpclient) and OpenVPN.
 
 %description -l pl
-KVpnc to nak³adk± na klienta vpnc dzia³ajac± w ¶rodowisku KDE. Wspiera
+KVpnc to nak³adka na klienta vpnc dzia³ajaca w ¶rodowisku KDE. Wspiera
 Cisco VPN, IPSec (FreeS/WAN, racoon). vpnc jest zamiennikiem dla
-klienta VPN Cisco, i jest u¼ywany jako klient dla koncentratorw VPN
+klienta VPN Cisco, i jest u¿ywany jako klient dla koncentratorów VPN
 cisco3000. FreeS/WAN (OpenS/WAN) jest klientem ipsecowym dla Linux
-2.4.x oraz racoon w wersji 2.6.x oraz *BSD. Wspiera równie¼ protokó³
+2.4.x oraz racoon w wersji 2.6.x oraz *BSD. Wspiera równie¿ protokó³
 PPTP (pptpclient) oraz OpenVPN.
 
 %prep
