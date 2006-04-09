@@ -1,18 +1,19 @@
 Summary:	GUI for VPN Client for Cisco EasyVPN
 Summary(pl):	GUI dla klienta vpn dla Cisco EasyVPN
 Name:		kvpnc
-Version:	0.7.2
+Version:	0.8.4
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
-# Source0-md5:	0164e4c3eb3b2d334f9118e97fc42e04
+# Source0-md5:	f949ebfab82641dd64242176002f04f8
+Patch0:         %{name}-amd64.patch
 URL:		http://home.gna.org/kvpnc/en/index.html
 BuildRequires:	kdelibs-devel >= 3.2
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
-Requires:	vpnc
+BuildRequires:	libgcrypt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,11 +34,12 @@ PPTP (pptpclient) oraz OpenVPN.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-%{__sed} -i 's,<UI version="3.1",<UI version="3.2",' src/*.ui
-%{__make} -f admin/Makefile.common
-%configure
+#%{__sed} -i 's,<UI version="3.1",<UI version="3.2",' src/*.ui
+#%{__make} -f admin/Makefile.common
+%configure --with-qt-libraries=/usr/lib64
 %{__make}
 
 %install
@@ -48,7 +50,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/config,%{_desktopdir},%{_sbindir}}
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Internet/%{name}.desktop \
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/%{name}.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 mv -f $RPM_BUILD_ROOT%{_bindir}/%{name} \
 	$RPM_BUILD_ROOT%{_sbindir}/%{name}
@@ -73,3 +75,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
+%{_iconsdir}/locolor/*/*/*
+%{_docdir}/kde/HTML/kvpnc/*
