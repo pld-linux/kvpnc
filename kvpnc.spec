@@ -7,13 +7,13 @@ License:	GPL
 Group:		Networking/Daemons
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
 # Source0-md5:	f949ebfab82641dd64242176002f04f8
-Patch0:         %{name}-amd64.patch
 URL:		http://home.gna.org/kvpnc/en/index.html
+BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.2
+BuildRequires:	libgcrypt-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
-BuildRequires:	libgcrypt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,12 +34,14 @@ PPTP (pptpclient) oraz OpenVPN.
 
 %prep
 %setup -q
-%patch0 -p1
+
+cp -f /usr/share/automake/config.* admin
 
 %build
 #%{__sed} -i 's,<UI version="3.1",<UI version="3.2",' src/*.ui
 #%{__make} -f admin/Makefile.common
-%configure --with-qt-libraries=/usr/lib64
+%configure \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
@@ -75,5 +77,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
-%{_iconsdir}/locolor/*/*/*
-%{_docdir}/kde/HTML/kvpnc/*
+# not supported
+#%{_iconsdir}/locolor/*/*/*
