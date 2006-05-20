@@ -77,6 +77,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
-%{_docdir}/kde/HTML/kvpnc/*
+%{_kdedocdir}/kvpnc/*
 # not supported
 #%{_iconsdir}/locolor/*/*/*
