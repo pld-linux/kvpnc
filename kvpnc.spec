@@ -1,12 +1,12 @@
 Summary:	GUI for VPN Client for Cisco EasyVPN
 Summary(pl):	GUI dla klienta vpn dla Cisco EasyVPN
 Name:		kvpnc
-Version:	0.8.4
+Version:	0.8.5.1
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
-# Source0-md5:	f949ebfab82641dd64242176002f04f8
+# Source0-md5:	cb1160138b8fc55019c67d1c538a8736
 URL:		http://home.gna.org/kvpnc/en/index.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.2
@@ -77,5 +77,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
+%{_docdir}/kde/HTML/kvpnc/*
 # not supported
 #%{_iconsdir}/locolor/*/*/*
