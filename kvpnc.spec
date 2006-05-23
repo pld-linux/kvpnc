@@ -1,5 +1,5 @@
 Summary:	GUI for VPN Client for Cisco EasyVPN
-Summary(pl):	GUI dla klienta vpn dla Cisco EasyVPN
+Summary(pl):	GUI dla klienta VPN dla Cisco EasyVPN
 Name:		kvpnc
 Version:	0.8.5.1
 Release:	1
@@ -77,6 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
-%{_kdedocdir}/kvpnc/*
+# shouldn't be as regular %doc?
+%{_kdedocdir}/kvpnc
 # not supported
 #%{_iconsdir}/locolor/*/*/*
