@@ -4,7 +4,7 @@ Name:		kvpnc
 Version:	0.8.7
 Release:	1
 License:	GPL
-Group:		Networking/Daemons
+Group:		X11/Applications
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
 # Source0-md5:	6e7d4925aaf4083d0aa6f334e4ff56ea
 URL:		http://home.gna.org/kvpnc/en/index.html
