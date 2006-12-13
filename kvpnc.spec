@@ -9,7 +9,7 @@ Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
 # Source0-md5:	6e7d4925aaf4083d0aa6f334e4ff56ea
 URL:		http://home.gna.org/kvpnc/en/index.html
 BuildRequires:	automake
-BuildRequires:	kdelibs-devel >= 3.2
+BuildRequires:	kdelibs-devel >= 9:3.2
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
