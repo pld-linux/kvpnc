@@ -1,5 +1,5 @@
 Summary:	GUI for VPN Client for Cisco EasyVPN
-Summary(pl):	GUI dla klienta VPN dla Cisco EasyVPN
+Summary(pl.UTF-8):   GUI dla klienta VPN dla Cisco EasyVPN
 Name:		kvpnc
 Version:	0.8.7
 Release:	1
@@ -24,12 +24,12 @@ Concentrator. FreeS/WAN (OpenS/WAN) is a IPSec client for Linux 2.4.x,
 and raccoon is a IPSec client for Linux 2.6.x and *BSD. It also
 supports PPTP (pptpclient) and OpenVPN.
 
-%description -l pl
-KVpnc to nak≥adka na klienta vpnc dzia≥ajaca w ∂rodowisku KDE. Wspiera
+%description -l pl.UTF-8
+KVpnc to nak≈Çadka na klienta vpnc dzia≈Çajaca w ≈õrodowisku KDE. Wspiera
 Cisco VPN, IPSec (FreeS/WAN, racoon). vpnc jest zamiennikiem dla
-klienta VPN Cisco, i jest uøywany jako klient dla koncentratorÛw VPN
+klienta VPN Cisco, i jest u≈ºywany jako klient dla koncentrator√≥w VPN
 cisco3000. FreeS/WAN (OpenS/WAN) jest klientem ipsecowym dla Linux
-2.4.x oraz racoon w wersji 2.6.x oraz *BSD. Wspiera rÛwnieø protokÛ≥
+2.4.x oraz racoon w wersji 2.6.x oraz *BSD. Wspiera r√≥wnie≈º protok√≥≈Ç
 PPTP (pptpclient) oraz OpenVPN.
 
 %prep
