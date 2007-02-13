@@ -1,5 +1,5 @@
 Summary:	GUI for VPN Client for Cisco EasyVPN
-Summary(pl.UTF-8):   GUI dla klienta VPN dla Cisco EasyVPN
+Summary(pl.UTF-8):	GUI dla klienta VPN dla Cisco EasyVPN
 Name:		kvpnc
 Version:	0.8.7
 Release:	1
