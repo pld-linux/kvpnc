@@ -1,5 +1,5 @@
-Summary:	GUI for VPN Client for Cisco EasyVPN
-Summary(pl.UTF-8):	GUI dla klienta VPN dla Cisco EasyVPN
+Summary:	GUI for VPN Client for various servers
+Summary(pl.UTF-8):	GUI dla klienta dla ró¿nych serwerów VPN
 Name:		kvpnc
 Version:	0.8.9
 Release:	1
@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
 # Source0-md5:	08cc09eef44da7f14e3a4c3fd73b17ff
+Patch0:		%{name}-bash.patch
 URL:		http://home.gna.org/kvpnc/en/index.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2
@@ -14,6 +15,7 @@ BuildRequires:	libgcrypt-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
+Requires:	bash
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,6 +36,7 @@ PPTP (pptpclient) oraz OpenVPN.
 
 %prep
 %setup -q
+%patch0 -p1
 
 cp -f /usr/share/automake/config.* admin
 
