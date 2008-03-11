@@ -1,5 +1,5 @@
 Summary:	GUI for VPN Client for various servers
-Summary(pl.UTF-8):	GUI dla klienta dla ró¿nych serwerów VPN
+Summary(pl.UTF-8):	GUI dla klienta dla rÃ³Å¼nych serwerÃ³w VPN
 Name:		kvpnc
 Version:	0.8.9
 Release:	1
