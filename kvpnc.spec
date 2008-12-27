@@ -1,13 +1,12 @@
 Summary:	GUI for VPN Client for various servers
 Summary(pl.UTF-8):	GUI dla klienta dla różnych serwerów VPN
 Name:		kvpnc
-Version:	0.8.9
+Version:	0.9.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
-# Source0-md5:	08cc09eef44da7f14e3a4c3fd73b17ff
-Patch0:		%{name}-bash.patch
+# Source0-md5:	3334211b26c2e265c032ec31448210cf
 URL:		http://home.gna.org/kvpnc/en/index.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2
@@ -36,7 +35,6 @@ PPTP (pptpclient) oraz OpenVPN.
 
 %prep
 %setup -q
-%patch0 -p1
 
 cp -f /usr/share/automake/config.* admin
 
