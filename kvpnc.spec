@@ -2,7 +2,7 @@ Summary:	GUI for VPN Client for various servers
 Summary(pl.UTF-8):	GUI dla klienta dla różnych serwerów VPN
 Name:		kvpnc
 Version:	0.9.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
@@ -58,8 +58,6 @@ mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/%{name}.desktop \
 mv -f $RPM_BUILD_ROOT%{_bindir}/%{name} \
 	$RPM_BUILD_ROOT%{_sbindir}/%{name}
 
-echo "Categories=Qt;KDE;System;X-Administration;" >> \
-	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 echo "Comment[pl]=Klient vpnc dla KDE" >> \
 	$RPM_BUILD_ROOT%{_datadir}/apps/kvpnc/eventsrc
 
