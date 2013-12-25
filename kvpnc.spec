@@ -2,7 +2,7 @@ Summary:	GUI for VPN Client for various servers
 Summary(pl.UTF-8):	GUI dla klienta dla różnych serwerów VPN
 Name:		kvpnc
 Version:	0.9.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
