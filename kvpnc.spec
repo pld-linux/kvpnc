@@ -1,15 +1,16 @@
 Summary:	GUI for VPN Client for various servers
 Summary(pl.UTF-8):	GUI dla klienta dla różnych serwerów VPN
 Name:		kvpnc
-Version:	0.9.1
-Release:	3
+Version:	0.9.6a
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://download.gna.org/kvpnc/%{name}-%{version}.tar.bz2
-# Source0-md5:	3334211b26c2e265c032ec31448210cf
+Source0:	http://download.gna.org/kvpnc/%{name}-%{version}-kde4.tar.bz2
+# Source0-md5:	bf8b7224284f5d3f8ad5235c599fe9e7
+Patch0:		sleep.patch
 URL:		http://home.gna.org/kvpnc/en/index.html
-BuildRequires:	automake
-BuildRequires:	kdelibs-devel >= 9:3.2
+BuildRequires:	automoc4
+BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
@@ -34,47 +35,31 @@ cisco3000. FreeS/WAN (OpenS/WAN) jest klientem ipsecowym dla Linux
 PPTP (pptpclient) oraz OpenVPN.
 
 %prep
-%setup -q
-
-cp -f /usr/share/automake/config.* admin
+%setup -q -n %{name}-%{version}-kde4
+%patch0 -p1
 
 %build
-#%{__sed} -i 's,<UI version="3.1",<UI version="3.2",' src/*.ui
-#%{__make} -f admin/Makefile.common
-%configure \
-	--with-qt-libraries=%{_libdir}
+install -d build
+cd build
+%cmake \
+	../
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/config,%{_desktopdir},%{_sbindir}}
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+%{__make} -C build install/fast \
+	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/%{name}.desktop \
-	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
-mv -f $RPM_BUILD_ROOT%{_bindir}/%{name} \
-	$RPM_BUILD_ROOT%{_sbindir}/%{name}
-
-echo "Comment[pl]=Klient vpnc dla KDE" >> \
-	$RPM_BUILD_ROOT%{_datadir}/apps/kvpnc/eventsrc
-
-install src/%{name}ui.rc $RPM_BUILD_ROOT%{_datadir}/config
-
-%find_lang %{name} --with-kde
+%{__mv} -f $RPM_BUILD_ROOT%{_desktopdir}/{kde4,}/%{name}.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
-%attr(755,root,root) %{_sbindir}/*
+%attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/kvpnc
-%{_datadir}/config/*
 %{_desktopdir}/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
-# shouldn't be as regular %doc?
-%{_kdedocdir}/kvpnc
